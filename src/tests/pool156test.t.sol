@@ -102,5 +102,9 @@ contract Pool156Test is DSTestPlus, stdCheats {
         crvFlywheelCore.claimRewards(user);
         require(crv.balanceOf(user) == prebalance + accrued, "cvxFlywheel claimRewards");
 
+        require(cvxFXSf.redeem(cvxFXSf.balanceOf(user)) == 0, "cvsFXS redeem");
+        require(cvxCRVf.redeem(cvxCRVf.balanceOf(user)) == 0, "cvsFXS redeem");
+        require(rethstethCRVf.redeem(rethstethCRVf.balanceOf(user)) == 0, "cvsFXS redeem");
+
     }
 }
