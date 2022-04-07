@@ -68,7 +68,7 @@ contract Pool156Test is DSTestPlus, stdCheats {
         accrued = crvFlywheelCore.rewardsAccrued(user);
         prebalance = crv.balanceOf(user);
         crvFlywheelCore.claimRewards(user);
-        require(crv.balanceOf(user) == prebalance + accrued, "cvxFlywheel claimRewards");
+        require(crv.balanceOf(user) == prebalance + accrued, "crvFlywheel claimRewards");
 
         // cvxCRVf
         hevm.warp(block.timestamp + 10);
@@ -84,7 +84,7 @@ contract Pool156Test is DSTestPlus, stdCheats {
         accrued = crvFlywheelCore.rewardsAccrued(user);
         prebalance = crv.balanceOf(user);
         crvFlywheelCore.claimRewards(user);
-        require(crv.balanceOf(user) == prebalance + accrued, "cvxFlywheel claimRewards");
+        require(crv.balanceOf(user) == prebalance + accrued, "crvFlywheel claimRewards");
 
         // rethstethCRVf
         hevm.warp(block.timestamp + 10);
@@ -100,11 +100,11 @@ contract Pool156Test is DSTestPlus, stdCheats {
         accrued = crvFlywheelCore.rewardsAccrued(user);
         prebalance = crv.balanceOf(user);
         crvFlywheelCore.claimRewards(user);
-        require(crv.balanceOf(user) == prebalance + accrued, "cvxFlywheel claimRewards");
+        require(crv.balanceOf(user) == prebalance + accrued, "crvFlywheel claimRewards");
 
-        require(cvxFXSf.redeem(cvxFXSf.balanceOf(user)) == 0, "cvsFXS redeem");
-        require(cvxCRVf.redeem(cvxCRVf.balanceOf(user)) == 0, "cvsFXS redeem");
-        require(rethstethCRVf.redeem(rethstethCRVf.balanceOf(user)) == 0, "cvsFXS redeem");
+        require(cvxFXSf.redeem(cvxFXSf.balanceOf(user)) == 0, "cvxFXS redeem");
+        require(cvxCRVf.redeem(cvxCRVf.balanceOf(user)) == 0, "cvxCRV redeem");
+        require(rethstethCRVf.redeem(rethstethCRVf.balanceOf(user)) == 0, "rethstethCRV redeem");
 
     }
 }
